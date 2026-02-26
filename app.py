@@ -9,6 +9,8 @@ from langchain_community.document_loaders import YoutubeLoader, UnstructuredURLL
 st.set_page_config(page_title="AI Summarizer: YouTube & Web", page_icon="🦜")
 st.title("🦜 LangChain: Summarize Text From YT or Website")
 st.subheader('Summarize URL')
+st.secrets["GROQ_API_KEY"]
+
 
 # Sidebar for Groq API Key
 with st.sidebar:
@@ -75,4 +77,5 @@ if st.button("Summarize Content"):
             elif "No transcripts" in error_msg:
                 st.error("This video does not have any captions/transcripts available.")
             else:
+
                 st.error(f"Error: {e}")
